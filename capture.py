@@ -12,6 +12,8 @@ cap = None
 def init():
     global cap
     cap = cv2.VideoCapture(0)
+    # ret, frame = cap.read()
+    # print(frame.shape)
 
 
 def getFrame():

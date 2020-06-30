@@ -14,6 +14,17 @@ goal_hsv_infinum = np.array([0, 0, 0])
 goal_hsv_supremum = np.array([10, 10, 10])
 
 
+# initialize limits
+init()
+init_frame = getFrame()
+h, w, d = init_frame.shape
+
+leftX = int((w/3)+w*.05)
+rightX = int(2*(w/3)-w*.05)
+print("center vision range on x axis", leftX, rightX)
+end()
+
+
 def getBallPosition():
     global ball_hsv_infinum, ball_hsv_supremum
     frame = getFrame()
@@ -100,11 +111,11 @@ def getAngle(obj):
     x, y = obj
     if(x == -1 or y == -1):
         return None
-    elif(x >= 325 and x <= 375):
+    elif(x >= leftX and x <= rightX):
         return 0
-    elif(x < 325):
+    elif(x < leftX):
         return -11
-    elif(x > 375):
+    elif(x > rightX):
         return 11
 
 
@@ -125,8 +136,8 @@ def getDistance(obj):
 # end()
 
 
-init()
-x, y = getBallPosition()
-end()
-# if(x==None or)
-print(x, y)
+# init()
+# x, y = getBallPosition()
+# end()
+# # if(x==None or)
+# print(x, y)
