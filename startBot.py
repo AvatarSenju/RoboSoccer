@@ -33,17 +33,19 @@ init()
 
 while(True):
     # captured = False
-    capturedDistance = 5
-    goalDistance = 2
+    capturedDistance = 50
+    goalDistance = 20
     ball = getBallPosition()
     goal = getGoalPosition()
     ballDist = getDistance(ball)
     goalDist = getDistance(goal)
+    print("ball dist ", ballDist)
     if(ballDist > capturedDistance):
         captured = False
     if(captured and goalDist <= goalDistance):
         break
     if(not captured):
+        print("Towards ball")
         angle = getAngle(ball)
         if(angle != None):
             if(angle < -10):
@@ -64,6 +66,7 @@ while(True):
             rotate_left()
 
     else:
+        print("Towards goal")
         angle = getAngle(goal)
         if(angle != None):
             if(angle < -10):

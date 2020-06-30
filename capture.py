@@ -11,7 +11,7 @@ cap = None
 # modify to get video over server-client connection
 def init():
     global cap
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
 
 def getFrame():
