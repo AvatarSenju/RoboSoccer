@@ -10,8 +10,8 @@ from capture import init, getFrame, end
 
 ball_hsv_infinum = np.array([100, 100, 100])
 ball_hsv_supremum = np.array([140, 255, 255])
-goal_hsv_infinum = np.array([0, 0, 0])
-goal_hsv_supremum = np.array([10, 10, 10])
+goal_hsv_infinum = np.array([100, 100, 100])
+goal_hsv_supremum = np.array([255, 255, 140])
 
 
 # initialize limits
@@ -98,10 +98,10 @@ def getGoalPosition():
                        int(radius), (0, 150, 255), 2)
             cv2.circle(frame_ret, center, 5, (0, 0, 255), -1)
 
-    cv2.imshow("frame", frame_ret)
-    while(True):
-        if cv2.waitKey(1) & 0xff == 27:
-            break
+    # cv2.imshow("frame", frame_ret)
+    # while(True):
+    #     if cv2.waitKey(1) & 0xff == 27:
+    #         break
 
     return (x, y)
 

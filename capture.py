@@ -28,6 +28,14 @@ def getFrame():
         return frame
 
 
+def showFrame():
+    frame = getFrame()
+    cv2.imshow("frame", frame)
+    while(True):
+        if cv2.waitKey(1) & 0xff == 27:
+            break
+
+
 def end():
     global cap
     cap.release()

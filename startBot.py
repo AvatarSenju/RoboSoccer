@@ -24,7 +24,7 @@ if ball in captured range
 
 from moveBot import rotate_left, rotate_right, moveForward, moveStop
 from findPosition import getAngle, getBallPosition, getDistance, getGoalPosition
-from capture import init, getFrame, end
+from capture import init, getFrame, showFrame, end
 
 # initialize limits
 init()
@@ -46,14 +46,17 @@ while(True):
     # captured = False
     # capturedDistance = 50
     # goalDistance = 20
+    showFrame()
     ball = getBallPosition()
     goal = getGoalPosition()
     ballDist = getDistance(ball)
     goalDist = getDistance(goal)
-    print("ball dist ", ballDist)
+    print("ball dist ", h-ballDist)
+    print("goal dist ", h-goalDist)
     if(ballDist < capturedLow or ballDist > capturedHigh):
         captured = False
     if(captured and goalDist > capturedLow and goalDist <= capturedHigh):
+        print("Ball in Goal")
         break
     if(not captured):
         print("Towards ball ", ball[0], ball[1])
@@ -89,4 +92,6 @@ while(True):
         else:
             rotate_left()
 
+
+showFrame()
 end()
